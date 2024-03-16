@@ -1,7 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpinToWin.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        main {
+            padding: 20px;
+        }
+        .roulette {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid red;
+        }
+    </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <header>
+        <h1>Welcome to SpinToWin.com</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#create">Create Your Roulette</a></li>
+            <li><a href="#play">Play Roulette</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="create">
+            <h2>Create Your Roulette</h2>
+            <form id="rouletteForm">
+                <label for="rouletteName">Roulette Name:</label>
+                <input type="text" id="rouletteName" name="rouletteName">
+                <label for="prizes">Prizes:</label>
+                <textarea id="prizes" name="prizes"></textarea>
+                <button type="submit">Create Roulette</button>
+            </form>
+        </section>
+
+        <section id="play">
+            <h2>Play Roulette</h2>
+            <div class="roulette" id="roulette">
+                <div class="arrow"></div>
+            </div>
+            <button onclick="spinRoulette()">Spin</button>
+        </section>
+
+        <section id="history">
+            <h2>History</h2>
+            <!-- Aquí se mostraría el historial de sorteos pasados -->
+        </section>
+
+        <section id="about">
+            <h2>About SpinToWin.com</h2>
+            <!-- Aquí se incluiría información sobre el propósito del sitio y cómo funciona -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SpinToWin.com. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function spinRoulette() {
+            var degrees = Math.floor(Math.random() * 360) + 720; // Girar entre 720 y 1080 grados (2 a 3 vueltas)
+            var roulette = document.getElementById('roulette');
+            roulette.style.transition = 'transform 3s ease-out';
+            roulette.style.transform = 'rotate(' + degrees + 'deg)';
+        }
+    </script>
 </body>
 </html>
